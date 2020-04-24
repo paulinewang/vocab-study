@@ -1,6 +1,28 @@
 .main {
-  &__header {
+  &__panel {
     width: 250px;
-    margin: 0 40px;
+    padding: 0 40px;
+
+    &--header {
+      font-size: 30px;
+    }
+
+    &--button {
+      margin: 20px 0;
+      display: block;
+      width: 100px;
+      border-radius: 50px;
+      border: 0;
+      background-color: #fbdd74;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 10px;
+      color: #1f1235;
+      cursor: pointer;
+    }
+
+    &--credit {
+      align-self: flex-end;
+    }
   }
 }

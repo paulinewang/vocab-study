@@ -18,8 +18,12 @@ class App extends React.Component {
     });
   };
 
-  // flip back to show all words
-  resetCards = () => {};
+  resetCards = () => {
+    const flippedCards = document.querySelectorAll(".is-flipped");
+    flippedCards.forEach((item) => {
+      item.classList.remove("is-flipped");
+    });
+  };
 
   shuffleCards = () => {};
 
@@ -29,15 +33,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <aside>
-          <h1 className="main__header">vocab-practice</h1>
-          <h6>Made by Pauline</h6>
+        <aside className="main__panel">
+          <h1 className="main__panel--header">vocab-practice</h1>
           {this.state.submitted && (
             <>
-              <button onClick={this.resetCards}>Reset</button>
-              <button>Shuffle</button>
+              <button className="main__panel--button" onClick={this.resetCards}>
+                Reset
+              </button>
+              <button className="main__panel--button">Shuffle</button>
             </>
           )}
+          <h6 className="main__panel--credit">Made by Pauline</h6>
         </aside>
         {this.state.submitted ? (
           <CardCollection wordCombinations={this.state.wordCombinations} />
