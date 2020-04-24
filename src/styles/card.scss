@@ -1,0 +1,44 @@
+.wrapper {
+  width: 250px;
+  height: 100px;
+  margin: 15px 15px;
+  perspective: 500px; // creates the 3d effect
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+
+  &__face {
+    position: absolute;
+    width: 100%;
+    font-size: 75px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+
+    &--front {
+      border: 2px solid #ff6e6c;
+      user-select: none;
+      border-radius: 10px;
+      line-height: 100px;
+    }
+
+    &--back {
+      border: 2px solid goldenrod;
+      font-size: 20px;
+      user-select: none;
+      border-radius: 10px;
+      transform: rotateY(180deg);
+      line-height: 100px;
+    }
+  }
+}
+
+.is-flipped {
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,35 @@
+.modal {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 70%;
+    border: 2px solid #67568c;
+    border-radius: 10px;
+  }
+
+  &__input {
+    border-radius: 10px;
+    width: 50%;
+    height: 40%;
+    padding: 20px 20px;
+  }
+
+  &__button {
+    border-radius: 50px;
+    border: 0;
+    width: 125px;
+    margin-top: 25px;
+    background-color: #67568c;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+
+    &--disabled {
+      background-color: #e2daeb;
+    }
+  }
+}
