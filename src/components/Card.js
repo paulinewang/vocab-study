@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import "./../styles/card.scss";
 
-const Card = ({ originalWord, translation, cardId }) => {
+const Card = ({ originalWord, translation }) => {
   const cardItem = useRef();
 
   const flipCard = () => {
@@ -11,7 +11,7 @@ const Card = ({ originalWord, translation, cardId }) => {
 
   return (
     <div className="wrapper">
-      <div className="card" onClick={flipCard} cardId={cardId} ref={cardItem}>
+      <div className="card" onClick={flipCard} ref={cardItem}>
         <div className="card__face card__face--front">
           <span className="card__original">️{originalWord}</span>
         </div>
