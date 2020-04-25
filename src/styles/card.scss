@@ -49,4 +49,12 @@
 
 .is-flipped {
   transform: rotateY(180deg);
+
+  card__face--front {
+    border-left: 0px;
+  }
+
+  card__face--back {
+    border-left: 20px solid pink;
+  }
 }
