@@ -1,5 +1,5 @@
 .main {
-  width: 25%;
+  width: 35%;
   height: 100vh;
   padding: 0 40px;
   display: flex;
@@ -10,6 +10,7 @@
     font-size: 30px;
     text-align: center;
     align-self: center;
+    color: #078080;
   }
 
   &__buttons {
@@ -23,7 +24,7 @@
       width: 125px;
       border-radius: 20px;
       border: 0;
-      background-color: #faae2b;
+      background-color: #67568c;
       font-size: 16px;
       font-weight: 700;
       padding: 10px;

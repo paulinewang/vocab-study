@@ -1,8 +1,8 @@
 .wrapper {
   width: 250px;
   height: 100px;
-  margin: 15px 15px;
-  perspective: 500px; // creates the 3d effect
+  margin: 15px 30px;
+  perspective: 500px; // creates the 3D effect
   border-radius: 10px;
   text-align: center;
   margin-bottom: 30px;
@@ -13,35 +13,40 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  color: #00473e;
+  color: #078080;
 
   &__face {
     position: absolute;
     width: 100%;
-    font-size: 75px;
+    font-size: 70px;
     backface-visibility: hidden;
     border-radius: 10px;
     background-color: white;
 
     &--front {
       border-radius: 8px;
-      border-left: 20px solid #faae2b;
+      border-left: 20px solid #ff6e6c;
+      // border-left: 20px solid #eebbc3;
       user-select: none;
       line-height: 100px;
+      // color: #043927;
+      // color: #014421;
+      color: #0b6623;
     }
 
     &--back {
-      border: 2px solid goldenrod;
+      border: 2px solid #ff6e6c;
+      // border: 2px solid #eebbc3;
       border-radius: 10px;
       font-size: 20px;
       user-select: none;
       transform: rotateY(180deg);
       line-height: 100px;
+      color: #222525;
     }
   }
 }
 
 .is-flipped {
   transform: rotateY(180deg);
-  border-left: 20px solid #ffa8ba;
 }

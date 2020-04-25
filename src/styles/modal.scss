@@ -5,8 +5,9 @@
     // align-items: center;
     height: 60vh;
     width: 70%;
-    border: 2px solid #67568c;
+    // border: 3px solid #faae2b;
     border-radius: 10px;
+    background-color: rgba(238, 187, 195, 0.5);
   }
 
   &__welcome {
@@ -15,10 +16,7 @@
     flex-direction: column;
     padding-left: 50px;
     padding-top: 50px;
-
-    img {
-      width: 100px;
-    }
+    color: #222525;
   }
 
   &__body {
@@ -36,6 +34,14 @@
     height: 60%;
     padding: 20px 20px;
     font-size: 16px;
+    border: 0;
+    // background: rgba(71, 93, 91, 0.1);
+    background: white;
+
+    &::placeholder {
+      color: #222525;
+      font-weight: 500;
+    }
   }
 
   &__button {
@@ -51,7 +57,7 @@
     padding: 10px;
 
     &--disabled {
-      background-color: #e2daeb;
+      background-color: #bbb;
     }
   }
 }
