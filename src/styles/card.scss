@@ -13,6 +13,7 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  color: #00473e;
 
   &__face {
     position: absolute;
@@ -20,19 +21,20 @@
     font-size: 75px;
     backface-visibility: hidden;
     border-radius: 10px;
+    background-color: white;
 
     &--front {
-      border: 2px solid #ff6e6c;
+      border-radius: 8px;
+      border-left: 20px solid #faae2b;
       user-select: none;
-      border-radius: 10px;
       line-height: 100px;
     }
 
     &--back {
       border: 2px solid goldenrod;
+      border-radius: 10px;
       font-size: 20px;
       user-select: none;
-      border-radius: 10px;
       transform: rotateY(180deg);
       line-height: 100px;
     }
@@ -41,4 +43,5 @@
 
 .is-flipped {
   transform: rotateY(180deg);
+  border-left: 20px solid #ffa8ba;
 }
