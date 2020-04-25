@@ -1,28 +1,40 @@
 .main {
-  &__panel {
-    width: 250px;
-    padding: 0 40px;
+  width: 35%;
+  height: 100vh;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    &--header {
-      font-size: 30px;
-    }
+  &__header {
+    font-size: 30px;
+    text-align: center;
+    align-self: center;
+    color: #078080;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 
     &--button {
       margin: 20px 0;
       display: block;
-      width: 100px;
-      border-radius: 50px;
+      width: 125px;
+      border-radius: 20px;
       border: 0;
-      background-color: #fbdd74;
+      background-color: #67568c;
       font-size: 16px;
       font-weight: 700;
       padding: 10px;
-      color: #1f1235;
+      color: white;
       cursor: pointer;
     }
+  }
 
-    &--credit {
-      align-self: flex-end;
-    }
+  &__credit {
+    align-self: center;
+    font-size: 16px;
   }
 }

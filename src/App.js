@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 
+import Main from "./components/Main";
 import Modal from "./components/Modal";
 import CardCollection from "./components/CardCollection";
 
@@ -8,45 +9,62 @@ import "./styles/main.scss";
 
 class App extends React.Component {
   state = {
+    rawInput: "",
     wordCombinations: [],
     submitted: false,
+    defaultOrder: true, // false = switch the languages
   };
 
-  handleChange = (data) => {
+  handleChange = (rawData, data) => {
     this.setState({
+      rawInput: rawData,
       wordCombinations: data,
     });
   };
 
   resetCards = () => {
+    // TODO: Refactor to not use querySelectorAll
     const flippedCards = document.querySelectorAll(".is-flipped");
     flippedCards.forEach((item) => {
       item.classList.remove("is-flipped");
     });
   };
 
-  shuffleCards = () => {};
+  shuffleCards = (pairs) => {
+    // Flip all cards back to original state
+    this.resetCards();
+    // Randomize the order
+    const shuffledDeck = pairs.sort(() => Math.random() - 0.5);
+    this.setState({ wordCombinations: shuffledDeck });
+  };
 
-  // eg flip korean and english
-  reverseCards = () => {};
+  // eg flip all korean and english
+  reverseLanguages = () => {
+    this.setState({ defaultOrder: !this.state.defaultOrder });
+  };
+
+  changeInput = () => {
+    console.log("changing input");
+    this.setState({ submitted: false });
+  };
 
   render() {
     return (
       <div className="App">
-        <aside className="main__panel">
-          <h1 className="main__panel--header">vocab-practice</h1>
-          {this.state.submitted && (
-            <>
-              <button className="main__panel--button" onClick={this.resetCards}>
-                Reset
-              </button>
-              <button className="main__panel--button">Shuffle</button>
-            </>
-          )}
-          <h6 className="main__panel--credit">Made by Pauline</h6>
-        </aside>
+        {this.state.submitted && (
+          <Main
+            resetCards={this.resetCards}
+            shuffleCards={this.shuffleCards}
+            wordCombinations={this.state.wordCombinations}
+            reverseLanguages={this.reverseLanguages}
+            changeInput={this.changeInput}
+          />
+        )}
         {this.state.submitted ? (
-          <CardCollection wordCombinations={this.state.wordCombinations} />
+          <CardCollection
+            wordCombinations={this.state.wordCombinations}
+            defaultOrder={this.state.defaultOrder}
+          />
         ) : (
           <Modal
             handleInput={this.handleChange}

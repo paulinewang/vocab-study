@@ -1,23 +1,51 @@
 .modal {
   &__container {
+    align-self: center;
+    display: flex;
+    // align-items: center;
+    height: 60vh;
+    width: 70%;
+    // border: 3px solid #faae2b;
+    border-radius: 10px;
+    background-color: rgba(238, 187, 195, 0.5);
+  }
+
+  &__welcome {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-top: 50px;
+    color: #222525;
+  }
+
+  &__body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40vh;
-    width: 70%;
-    border: 2px solid #67568c;
-    border-radius: 10px;
+    flex-grow: 100;
+    width: 100%;
   }
 
   &__input {
     border-radius: 10px;
-    width: 50%;
-    height: 40%;
+    width: 70%;
+    height: 60%;
     padding: 20px 20px;
+    font-size: 16px;
+    border: 0;
+    // background: rgba(71, 93, 91, 0.1);
+    background: white;
+
+    &::placeholder {
+      color: #222525;
+      font-weight: 500;
+    }
   }
 
   &__button {
+    cursor: pointer;
     border-radius: 50px;
     border: 0;
     width: 125px;
@@ -29,7 +57,7 @@
     padding: 10px;
 
     &--disabled {
-      background-color: #e2daeb;
+      background-color: #bbb;
     }
   }
 }

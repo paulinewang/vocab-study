@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -8,6 +8,7 @@ import "./../styles/modal.scss";
 
 const Modal = ({ onClickSubmit, handleInput, words }) => {
   const wordsTextarea = useRef(null);
+  const [rawInput, setRawInput] = useState("");
 
   const isSubmitButtonDisabled =
     words.length === 0 || words[0].translation === "";
@@ -15,8 +16,9 @@ const Modal = ({ onClickSubmit, handleInput, words }) => {
     "modal__button--disabled": isSubmitButtonDisabled,
   });
 
-  const onChange = () => {
+  const onChange = async () => {
     // Split every line into an array element
+    await setRawInput(wordsTextarea.current.value);
     const arrayOfWords = wordsTextarea.current.value
       .replace(/\r\n/g, "\n")
       .split("\n");
@@ -32,7 +34,7 @@ const Modal = ({ onClickSubmit, handleInput, words }) => {
           translation: array[1].trim(),
         };
         wordsArray.push(translationObject);
-        handleInput(wordsArray);
+        handleInput(rawInput, wordsArray);
       }
     });
   };
@@ -41,20 +43,27 @@ const Modal = ({ onClickSubmit, handleInput, words }) => {
     <div className="modal__container">
       {/* <LanguagesInput /> */}
       {/* set isStarting to false when the user clicks the button*/}
-      <textarea
-        onChange={onChange}
-        placeholder="Insert the words you want to learn here, separated with a dash"
-        ref={wordsTextarea}
-        className="modal__input"
-      />
-      {/* When clicking the submit button, the modal goes away and the cards appear */}
-      <button
-        className={buttonClassnames}
-        onClick={onClickSubmit}
-        disabled={isSubmitButtonDisabled}
-      >
-        Submit
-      </button>
+      <aside className="modal__welcome">
+        <h1>vocab-study your place to memorize new words.</h1>
+      </aside>
+      <div className="modal__body">
+        <textarea
+          onChange={onChange}
+          placeholder="Insert the words you want to learn here, separated with a dash"
+          ref={wordsTextarea}
+          className="modal__input"
+          value={rawInput}
+        />
+        {/* {words}</textarea> */}
+        {/* When clicking the submit button, the modal goes away and the cards appear */}
+        <button
+          className={buttonClassnames}
+          onClick={onClickSubmit}
+          disabled={isSubmitButtonDisabled}
+        >
+          Start
+        </button>
+      </div>
     </div>
   );
 };

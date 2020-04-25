@@ -4,14 +4,14 @@ import Card from "./Card";
 
 import "./../styles/collection.scss";
 
-const CardCollection = ({ wordCombinations }) => {
+const CardCollection = ({ wordCombinations, defaultOrder }) => {
   return (
     <div className="collection">
       {wordCombinations.map((card, index) => (
         <Card
           key={index}
-          originalWord={card.word}
-          translation={card.translation}
+          originalWord={defaultOrder ? card.word : card.translation}
+          translation={defaultOrder ? card.translation : card.word}
           cardId={index}
         />
       ))}
