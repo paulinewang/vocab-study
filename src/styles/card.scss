@@ -18,25 +18,22 @@
   &__face {
     position: absolute;
     width: 100%;
-    font-size: 70px;
+    font-size: 45px;
     backface-visibility: hidden;
     border-radius: 10px;
     background-color: white;
 
     &--front {
       border-radius: 8px;
-      border-left: 20px solid #ff6e6c;
-      // border-left: 20px solid #eebbc3;
+      border-left: 20px solid #add8e6;
       user-select: none;
       line-height: 100px;
-      // color: #043927;
-      // color: #014421;
       color: #0b6623;
     }
 
     &--back {
-      border: 2px solid #ff6e6c;
-      // border: 2px solid #eebbc3;
+      border: 2px solid rgb(207, 240, 204);
+      border-left: 20px solid rgb(207, 240, 204);
       border-radius: 10px;
       font-size: 20px;
       user-select: none;
@@ -48,13 +45,6 @@
 }
 
 .is-flipped {
-  transform: rotateY(180deg);
-
-  card__face--front {
-    border-left: 0px;
-  }
-
-  card__face--back {
-    border-left: 20px solid pink;
-  }
+  // Counterset the left border of 20px
+  transform: rotateY(180deg) translateX(-20px);
 }

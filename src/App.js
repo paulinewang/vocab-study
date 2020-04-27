@@ -12,7 +12,7 @@ class App extends React.Component {
     rawInput: "",
     wordCombinations: [],
     submitted: false,
-    defaultOrder: true, // false = switch the languages
+    defaultOrder: true,
   };
 
   handleChange = (rawData, data) => {
@@ -38,13 +38,12 @@ class App extends React.Component {
     this.setState({ wordCombinations: shuffledDeck });
   };
 
-  // eg flip all korean and english
   reverseLanguages = () => {
+    this.resetCards();
     this.setState({ defaultOrder: !this.state.defaultOrder });
   };
 
   changeInput = () => {
-    console.log("changing input");
     this.setState({ submitted: false });
   };
 
@@ -70,6 +69,7 @@ class App extends React.Component {
             handleInput={this.handleChange}
             onClickSubmit={() => this.setState({ submitted: true })}
             words={this.state.wordCombinations}
+            isSubmitting={this.state.submitted}
           />
         )}
       </div>

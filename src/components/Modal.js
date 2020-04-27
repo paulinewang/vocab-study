@@ -6,12 +6,12 @@ import classNames from "classnames";
 
 import "./../styles/modal.scss";
 
-const Modal = ({ onClickSubmit, handleInput, words }) => {
+const Modal = ({ onClickSubmit, handleInput, words, isSubmitted }) => {
   const wordsTextarea = useRef(null);
   const [rawInput, setRawInput] = useState("");
 
   const isSubmitButtonDisabled =
-    words.length === 0 || words[0].translation === "";
+    isSubmitted && (words.length === 0 || words[0].translation === "");
   const buttonClassnames = classNames("modal__button", {
     "modal__button--disabled": isSubmitButtonDisabled,
   });
@@ -44,7 +44,7 @@ const Modal = ({ onClickSubmit, handleInput, words }) => {
       {/* <LanguagesInput /> */}
       {/* set isStarting to false when the user clicks the button*/}
       <aside className="modal__welcome">
-        <h1>vocab-study your place to memorize new words.</h1>
+        <h1>Amgi암기.</h1>
       </aside>
       <div className="modal__body">
         <textarea

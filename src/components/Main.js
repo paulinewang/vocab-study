@@ -8,7 +8,7 @@ const Main = ({
   changeInput,
 }) => (
   <aside className="main">
-    <h1 className="main__header">vocab-practice</h1>
+    <h1 className="main__header">Amgi/암기</h1>
     <div className="main__buttons">
       <button className="main__buttons--button" onClick={resetCards}>
         Reset
