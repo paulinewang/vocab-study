@@ -28,5 +28,4 @@ export default Card;
 Card.propTypes = {
   originalWord: PropTypes.string,
   translation: PropTypes.string,
-  cardId: PropTypes.number,
 };

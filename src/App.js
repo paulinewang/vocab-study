@@ -15,10 +15,15 @@ class App extends React.Component {
     defaultOrder: true,
   };
 
-  handleChange = (rawData, data) => {
+  handleChange = (data) => {
     this.setState({
-      rawInput: rawData,
       wordCombinations: data,
+    });
+  };
+
+  handleRawInput = (input) => {
+    this.setState({
+      rawInput: input,
     });
   };
 
@@ -69,7 +74,8 @@ class App extends React.Component {
             handleInput={this.handleChange}
             onClickSubmit={() => this.setState({ submitted: true })}
             words={this.state.wordCombinations}
-            isSubmitting={this.state.submitted}
+            handleRawInput={this.handleRawInput}
+            rawInput={this.state.rawInput}
           />
         )}
       </div>

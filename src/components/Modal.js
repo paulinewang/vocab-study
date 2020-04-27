@@ -1,24 +1,27 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-// import LanguagesInput from "./LanguagesInput";
-
 import "./../styles/modal.scss";
 
-const Modal = ({ onClickSubmit, handleInput, words, isSubmitted }) => {
+const Modal = ({
+  onClickSubmit,
+  handleInput,
+  handleRawInput,
+  rawInput,
+  words,
+}) => {
   const wordsTextarea = useRef(null);
-  const [rawInput, setRawInput] = useState("");
-
   const isSubmitButtonDisabled =
-    isSubmitted && (words.length === 0 || words[0].translation === "");
+    (wordsTextarea.current && wordsTextarea.current.value === "") ||
+    words.length === 0 ||
+    words[0].translation === "";
   const buttonClassnames = classNames("modal__button", {
     "modal__button--disabled": isSubmitButtonDisabled,
   });
 
   const onChange = async () => {
     // Split every line into an array element
-    await setRawInput(wordsTextarea.current.value);
     const arrayOfWords = wordsTextarea.current.value
       .replace(/\r\n/g, "\n")
       .split("\n");
@@ -34,15 +37,14 @@ const Modal = ({ onClickSubmit, handleInput, words, isSubmitted }) => {
           translation: array[1].trim(),
         };
         wordsArray.push(translationObject);
-        handleInput(rawInput, wordsArray);
+        handleInput(wordsArray);
       }
     });
+    handleRawInput(wordsTextarea.current.value);
   };
 
   return (
     <div className="modal__container">
-      {/* <LanguagesInput /> */}
-      {/* set isStarting to false when the user clicks the button*/}
       <aside className="modal__welcome">
         <h1>Amgi암기.</h1>
       </aside>
@@ -54,8 +56,6 @@ const Modal = ({ onClickSubmit, handleInput, words, isSubmitted }) => {
           className="modal__input"
           value={rawInput}
         />
-        {/* {words}</textarea> */}
-        {/* When clicking the submit button, the modal goes away and the cards appear */}
         <button
           className={buttonClassnames}
           onClick={onClickSubmit}
@@ -72,4 +72,8 @@ export default Modal;
 
 Modal.propTypes = {
   onClickSubmit: PropTypes.func,
+  handleInput: PropTypes.func,
+  handleRawInput: PropTypes.func,
+  rawInput: PropTypes.string,
+  words: PropTypes.array,
 };

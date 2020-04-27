@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Main = ({
   resetCards,
@@ -31,3 +32,11 @@ const Main = ({
 );
 
 export default Main;
+
+Main.propTypes = {
+  resetCards: PropTypes.func,
+  shuffleCards: PropTypes.func,
+  wordCombinations: PropTypes.array,
+  reverseLanguages: PropTypes.func,
+  changeInput: PropTypes.func,
+};

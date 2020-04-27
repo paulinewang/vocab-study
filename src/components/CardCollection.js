@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Card from "./Card";
 
@@ -20,3 +21,8 @@ const CardCollection = ({ wordCombinations, defaultOrder }) => {
 };
 
 export default CardCollection;
+
+CardCollection.propTypes = {
+  wordCombinations: PropTypes.array,
+  defaultOrder: PropTypes.bool,
+};
