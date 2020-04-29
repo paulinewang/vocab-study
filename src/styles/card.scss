@@ -13,12 +13,12 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  color: #078080;
+  color: #222525;
 
   &__face {
     position: absolute;
     width: 100%;
-    font-size: 45px;
+    font-size: 20px;
     backface-visibility: hidden;
     border-radius: 10px;
     background-color: white;
@@ -28,7 +28,6 @@
       border-left: 20px solid #add8e6;
       user-select: none;
       line-height: 100px;
-      color: #0b6623;
     }
 
     &--back {
@@ -47,4 +46,9 @@
 .is-flipped {
   // Counterset the left border of 20px
   transform: rotateY(180deg) translateX(-20px);
+}
+
+.is-non-alphabetic {
+  font-size: 45px;
+  color: #078080;
 }

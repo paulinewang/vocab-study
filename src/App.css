@@ -7,6 +7,7 @@ body {
 .App {
   font-family: "Roboto", sans-serif;
   display: flex;
+  /* Needed for the positioning of the modal */
   align-items: flex-start;
   justify-content: center;
   height: 100vh;
