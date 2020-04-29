@@ -24,7 +24,7 @@ const Main = ({
         Reverse languages
       </button>
       <button className="main__buttons--button" onClick={changeInput}>
-        Edit words
+        {`Edit words (${wordCombinations.length})`}
       </button>
     </div>
     <h6 className="main__credit">Made by Pauline</h6>
