@@ -1,13 +1,13 @@
+## 👉🏻 https://vocab-study.now.sh/
+
 This project, which does not really have an official name (yet), is a tool that will help you memorize vocabulary. It is relevant for languages that use the A-Z alphabet, but is especially applicable when learning languages that are character-based rather than A-Z-based.
 
-Features:
+### Features
 - Reset all cards after you are done learning
 - Shuffle the order of the cards
 - Reverse the languages, so that you can learn a language both ways!
 
-Check it out here! https://vocab-study.now.sh/
-
-Future improvements:
+### Possible future improvements
 - Allow the learner to keep track of words that they got wrong
 - Allow user input instead of flipping cards
 - Multi-device support (as of now, it only supports desktop)
