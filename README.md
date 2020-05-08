@@ -7,6 +7,12 @@ Features:
 
 Check it out here! https://vocab-study.now.sh/
 
+Future improvements:
+- Allow the learner to keep track of words that they got wrong
+- Allow user input instead of flipping cards
+- Multi-device support (as of now, it only supports desktop)
+- Improved design
+
 ---
 
 
