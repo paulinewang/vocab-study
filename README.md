@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project, which does not really have an official name (yet), is a tool that will help you memorize vocabulary. It is relevant for languages that use the A-Z alphabet, but is especially applicable when learning languages that are character-based rather than A-Z-based.
+
+Features:
+- Reset all cards after you are done learning
+- Shuffle the order of the cards
+- Reverse the languages, so that you can learn a language both ways!
+
+Check it out here! https://vocab-study.now.sh/
+
+---
+
 
 ## Available Scripts
 
